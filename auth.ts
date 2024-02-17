@@ -1,4 +1,4 @@
-import NextAuth, { DefaultSession } from "next-auth";
+import NextAuth, { DefaultSession, Session } from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 
 import { db } from "@/lib/db";
@@ -75,7 +75,7 @@ export const {
 
       return true;
     },
-    async session({ token, session }) {
+    async session({ session, token }: { session: Session; token?: any }) {
       // console.log({
       //   sessionToken: token,
       // });
