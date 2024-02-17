@@ -1,6 +1,6 @@
 "use client";
 
-import * as z from "zod";
+import * as z from "@/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { settings } from "@/actions/settings";
 import { Button } from "@/components/ui/button";
@@ -39,8 +39,6 @@ const SettingPage = () => {
   const { update } = useSession();
   const [isPending, startTransition] = useTransition();
 
-  console.log(user);
-
   const form = useForm<z.infer<typeof SettingsSchema>>({
     resolver: zodResolver(SettingsSchema),
     defaultValues: {
@@ -70,7 +68,6 @@ const SettingPage = () => {
         .catch(() => setError("Something went wrong!"));
     });
   };
-  console.log("isOAuth: ", user?.isOAuth);
   return (
     <Card>
       <CardHeader className="w-[600px]">

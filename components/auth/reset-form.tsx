@@ -1,5 +1,5 @@
 "use client";
-import * as z from "zod";
+import * as z from "@/zod";
 import { CardWrapper } from "@/components/auth/card-wrapper";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,7 +35,6 @@ export const ResetForm = () => {
     setError("");
     setSuccess("");
 
-    // console.log(values);
     startTransition(() => {
       reset(values).then((data: any) => {
         setError(data.error);

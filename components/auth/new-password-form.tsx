@@ -1,5 +1,5 @@
 "use client";
-import * as z from "zod";
+import * as z from "@/zod";
 import { CardWrapper } from "@/components/auth/card-wrapper";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -43,7 +43,6 @@ export const ResetPasswordForm = () => {
     }
     setError("");
     setSuccess("");
-    // console.log(values);
     startTransition(() => {
       changePassword(values, token).then((data: any) => {
         setError(data?.error);

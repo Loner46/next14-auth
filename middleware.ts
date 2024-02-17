@@ -11,9 +11,6 @@ import { url } from "inspector";
 const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {
-  // console.log("ROUTE: ", req.nextUrl.pathname);
-  // console.log("IS LOGGED IN: ", isLoggedIn);
-
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);

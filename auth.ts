@@ -38,16 +38,6 @@ export const {
     },
   },
   callbacks: {
-    // async signIn({ user }) {
-    //   const existingUser = await getUserById(user.id);
-
-    //   console.log(existingUser);
-
-    //   if (!existingUser || !existingUser.emailVerified) {
-    //     return false;
-    //   }
-    //   return true;
-    // },
     async signIn({ user, account }) {
       if (!user || !user.id) return false;
       // Allow OAuth without eamil verification
@@ -76,9 +66,6 @@ export const {
       return true;
     },
     async session({ session, token }: { session: Session; token?: any }) {
-      // console.log({
-      //   sessionToken: token,
-      // });
       if (token.role && session.user) {
         session.user.role = token.role;
       }

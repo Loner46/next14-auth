@@ -5,8 +5,6 @@ import { useCurrentUser } from "@/hooks/use-current-user";
 
 const ClientPage = () => {
   const user = useCurrentUser();
-  // console.log("user: ", user);
-  // console.log("session: ", session);
 
   return (
     <div>
